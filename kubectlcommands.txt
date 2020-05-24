@@ -1,0 +1,18 @@
+kubectl get all --all-namespaces -o wide
+watch -n0 kubectl get all
+get nodes
+describe pods
+get rs
+cluster-info
+get services
+get pods
+port-forward [name-of-pod] 8080:80
+clean delete deployment: delete deployment [name-of-deployment]
+deploy: apply -f deployment.yaml
+ssh to  a pod: exec [name] -it ssh
+scale deployment [deployment-name] --replicas=5
+Shell into pod and and run command: exec [pod-name] -- curl -s http://podip (inclue -c if multiple containers)
+logs: logs [podname]
+logs for a container: logs [podname] -c [container-name]
+stream pod logs: logs -f [podname]
+log for a killed pod: logs -p [podname]
