@@ -8,6 +8,7 @@ import * as c from '../../../../config/config';
 const router: Router = Router();
 
 export function requireAuth(req: Request, res: Response, next: NextFunction) {
+  console.log("Require auth called")
   if (!req.headers || !req.headers.authorization) {
     return res.status(401).send({message: 'No authorization headers.'});
   }
@@ -42,6 +43,9 @@ router.get('/', async (req: Request, res: Response) => {
 router.get('/:id',
     async (req: Request, res: Response) => {
       const {id} = req.params;
+
+      console.log(`GET feed with id ${id}`)
+
       const item = await FeedItem.findByPk(id);
       res.send(item);
     });
@@ -73,7 +77,7 @@ router.post('/',
         return res.status(400).send({message: 'File url is required.'});
       }
 
-      console.log(`Feed POST: ${caption} ${fileName}`)
+      console.log(`Feed POST: ${caption} ${fileName}`)  
       const item = await new FeedItem({
         caption: caption,
         url: fileName,
