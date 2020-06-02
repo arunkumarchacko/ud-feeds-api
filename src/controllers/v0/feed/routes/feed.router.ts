@@ -73,6 +73,7 @@ router.post('/',
         return res.status(400).send({message: 'File url is required.'});
       }
 
+      console.log(`Feed POST: ${caption} ${fileName}`)
       const item = await new FeedItem({
         caption: caption,
         url: fileName,
