@@ -33,7 +33,7 @@ import {V0_FEED_MODELS} from './controllers/v0/model.index';
   // Root URI call
   app.get( '/', async ( req, res ) => {
     console.log("GET called for feeds")
-    res.send( '/api/v0/' );
+    res.send( 'Hello from feed service' );
   } );
 
 
