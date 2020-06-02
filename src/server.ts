@@ -32,14 +32,16 @@ import {V0_FEED_MODELS} from './controllers/v0/model.index';
 
   // Root URI call
   app.get( '/', async ( req, res ) => {
-    console.log("GET called for feeds")
+    let ts = Date.now()
+    console.log(`GET called for feeds; ts=${ts}`)
     res.send( '2. Hello from feed service' );
   } );
 
 
   // Start the Server
   app.listen( port, () => {
-    console.log( `Feed server running at port ${port}` );
+    let ts = Date.now()
+    console.log( `Feed server running at port ${port}; ts=${ts}` );
     console.log( `press CTRL+C to stop server` );
   } );
 })();

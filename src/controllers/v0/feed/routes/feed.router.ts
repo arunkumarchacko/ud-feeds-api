@@ -27,9 +27,16 @@ export function requireAuth(req: Request, res: Response, next: NextFunction) {
   });
 }
 
+router.get( '/pingtest', async ( req, res ) => {
+  let ts = Date.now()
+  console.log(`FeedsApi Pingtest. ts=${ts}`)
+  res.send( `FeedsApi Ping success; ts=${ts}` );
+});
+
 // Get all feed items
 router.get('/', async (req: Request, res: Response) => {
-  console.log("GET called for feed.router")
+  let ts = Date.now()
+  console.log(`GET called for feed.router. ts=${ts}`)
   const items = await FeedItem.findAndCountAll({order: [['id', 'DESC']]});
   items.rows.map((item) => {
     if (item.url) {
